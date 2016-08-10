@@ -8,38 +8,60 @@
 	<meta name="language" content="en" />
 	<meta name="description" content="Joe Boyle is a Software Engineer with proficiency in secure, scalable distributed application development." />
 	<title>Joe Boyle — Software Engineer</title>
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />	
+	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />	
     <style type="text/css">
-      #resume{ display:none; }
+      #software { display:none; }
+      #invadv{ display:none; }
     </style>
     <script language="javascript"> 
     <!--
-        var introState = 'block';
-        var resumeState = 'none';
+        var STATE_INTRO = 0;
+        var STATE_SOFTWARE = 1;
+        var STATE_INVADV = 2;
+        var stateNum = STATE_INTRO;
 
-    function toggleIntro() {
-        if (introState == 'block') { introState = 'none'; } 
-        else { introState = 'block'; } 
-        if (document.getElementById &&!document.all) { 
-            hza = document.getElementById('intro'); 
-            hza.style.display = introState; 
-        } 
-    } 
+    function setState(nextState) {
 
-    function toggleResume() {
-        if (resumeState == 'block') { resumeState = 'none'; } 
-        else { resumeState = 'block'; } 
-        if (document.getElementById &&!document.all) { 
-            hza = document.getElementById('resume'); 
-            hza.style.display = resumeState; 
-        } 
-    } 
+        switch (nextState)
+        {
+            case STATE_INTRO:
+                introState = 'block';
+                softState = 'none';
+                invadvState = 'none';
+                break;
 
-    function clickSoftware() {
-        toggleIntro();
-        toggleResume();
+            case STATE_SOFTWARE:
+                introState = 'none';
+                softState = 'block';
+                invadvState = 'none';
+                break;
+
+            case STATE_INVADV:
+                introState = 'none';
+                softState = 'none';
+                invadvState = 'block';
+                break;
+
+            default:
+                pass;
+        }
+
+        if (document.getElementById &&!document.all)
+        {
+            hza = document.getElementById('intro');
+            hza.style.display = introState;
+        }
+        if (document.getElementById &&!document.all)
+        {
+            hza = document.getElementById('software');
+            hza.style.display = softState;
+        }
+        if (document.getElementById &&!document.all)
+        {
+            hza = document.getElementById('invadv');
+            hza.style.display = invadvState;
+        }
     }
-
     //--> 
 </script> 
 </head>
@@ -50,17 +72,21 @@
 		<div id="about">
 			<div id="menu">
                 <h2>Joe <br /> Boyle</h2>
-                <a href="#" onclick="clickSoftware();"><h3>Software <br /> Engineer </h3></a>
+                <a href="#" onclick="setState(STATE_INVADV);"><h3>Investor <br /> Advisor </h3></a>
+                <br/>
+                <br/>
+                <a href="#" onclick="setState(STATE_SOFTWARE);"><h3>Software <br /> Engineer </h3></a>
                 <br/>
                 <br/>
                 <a href="http://www.imdb.com/name/nm6025769"><h3>Film <br /> Maker </h3></a>
+                <br/>
+                <br/>
+                <a href="#" onclick="setState(STATE_INTRO);"><h3>Links/ <br />Contact</a>
 				<ul>
-				<li> San Francisco, CA<br /></li>
-				<li><a id="emailme2" href="#">joe.boyle</a></li>
-				</ul>
 			</div>
+			<div id="body">
             <div id="intro" class="text">					
-                Welcome to the personal homepage of Joe Boyle.  <br><br>
+                Welcome to the personal homepage of  Joe Boyle.<br><br>
 
                 Links to my professional resumes can be found to the left, and social media links can be found below:<br><br>
  
@@ -70,10 +96,14 @@
                 <li><a href="https://www.linkedin.com/in/joebboyle">LinkedIn</a></li>
                 <li><a href="https://www.flickr.com/photos/oneupmanshipwreck">Flickr</a></li>
                 <li><a href="https://www.github.com/boblaublaw">GitHub</a></li>
-                </ul>
-
+				</ul>
+				<a id="emailme2" href="#">hello</a><br /><br />
+				San Francisco, CA<br />
             </div>
-            <div id="resume" class="text">					
+            <div id="invadv" class="text">
+                poo
+            </div>
+            <div id="software" class="text">
 
 <h3>Professional Experience</h3>
 
@@ -178,12 +208,13 @@
 <script type='text/javascript'>
     // foil spam bots
     var mta = '@joeboyle.com';
-    var email ='resume' + mta;
+    var email ='hello' + mta;
     document.getElementById('emailme').href = 'mailto:'+email;
     document.getElementById('emailme2').href = 'mailto:'+email;
     document.getElementById('emailme2').innerHTML += mta;
 </script>
 
+</div>
 </div>
 </div>
 </div>
