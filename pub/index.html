@@ -6,63 +6,61 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="verify-v1" content="M77dNG/Jd3GinDzdPHLoc00nc5/46b0w6nv4ewAoxLw=" />
 	<meta name="language" content="en" />
-	<meta name="description" content="Joe Boyle is a Software Engineer with proficiency in secure, scalable distributed application development." />
-	<title>Joe Boyle — Software Engineer</title>
+	<meta name="description" content="The personal and professional homepages of Joe Boyle." />
+	<title>Joe Boyle</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />	
     <style type="text/css">
-      #intro { display:block; }
+      #about { display:block; }
       #software { display:none; }
       #invadv { display:none; }
       #linkscontact { display:none; }
     </style>
     <script language="javascript"> 
     <!--
-        var STATE_INTRO = 0;
+        var STATE_ABOUT = 0;
         var STATE_SOFTWARE = 1;
         var STATE_INVADV = 2;
         var STATE_LINKS = 3;
-        var stateNum = STATE_INTRO;
 
     function setState(nextState) {
 
         switch (nextState)
         {
-            case STATE_INTRO:
-                introState = 'block';
-                linkState = 'none';
-                softState = 'none';
-                invadvState = 'none';
-                break;
-
             case STATE_SOFTWARE:
-                introState = 'none';
                 linkState = 'none';
                 softState = 'block';
                 invadvState = 'none';
+                aboutState = 'none';
                 break;
 
             case STATE_INVADV:
-                introState = 'none';
                 linkState = 'none';
                 softState = 'none';
                 invadvState = 'block';
+                aboutState = 'none';
                 break;
 
             case STATE_LINKS:
-                introState = 'none';
                 linkState = 'block';
                 softState = 'none';
                 invadvState = 'none';
+                aboutState = 'none';
+                break;
+
+            case STATE_ABOUT:
+                linkState = 'none';
+                softState = 'none';
+                invadvState = 'none';
+                aboutState = 'block';
                 break;
 
             default:
                 pass;
         }
-
         if (document.getElementById &&!document.all)
         {
-            hza = document.getElementById('intro');
-            hza.style.display = introState;
+            hza = document.getElementById('about');
+            hza.style.display = aboutState;
             hza = document.getElementById('software');
             hza.style.display = softState;
             hza = document.getElementById('invadv');
@@ -81,33 +79,35 @@
         <h2>Joe <br /> Boyle</h2>
     </div>
     <div id="menu">
+        <a href="#" onclick="setState(STATE_ABOUT);"><h3>About</h3></a>
+        <br/>
         <a href="#" onclick="setState(STATE_INVADV);"><h3>Investor <br /> Advisor </h3></a>
         <br/>
-        <br/>
-        <a href="#" onclick="setState(STATE_SOFTWARE);"><h3>Software <br /> Engineer </h3></a>
-        <br/>
+        <a href="#" onclick="setState(STATE_SOFTWARE);"><h3>Software <br /> Developer </h3></a>
         <br/>
         <a href="http://www.imdb.com/name/nm6025769" target="_blank"><h3>Film <br /> Maker </h3></a>
-        <br/>
         <br/>
         <a href="#" onclick="setState(STATE_LINKS);"><h3>Links/ <br />Contact</h3></a>
         <ul>
     </div>
     <div id="info">
-    <div id="intro" class="text">
-        Welcome to the personal homepage of  Joe Boyle.<br><br>
-        Introduction here.
+    <div id="about" class="text">
+        <p>Welcome to the homepage of Joe Boyle!  Here's a quick bio to get the ball rolling:</p><br/>
+        <p>Originally born and raised in Canada, Joe relocated to the US in 2001 to access the explosive opportunities in tech.  After a brief time in New York Adtech world, Joe experienced the first dotcom bust of 2001.  Immediately thereafter Joe relocated to California to join the computer security industry.</p><br/>
+        <p>Joe has recently pivoted to join the burgeoning community gathering around Virtual Reality.</p><br/>
+        <p>
     </div>
     <div id="linkscontact" class="text">
-        blah blah something here.<br/><br/>
+        Links to social media profiles can be found below:<br/><br/>
         <ul>
-        <li><a href="https://www.facebook.com/joe.boyle">Facebook</a></li>
-        <li><a href="https://www.quora.com/profile/Joe-Boyle-12">Quora</a></li>
-        <li><a href="https://instagram.com/boblaublaw">Instagram</a></li>
         <li><a href="https://www.linkedin.com/in/joebboyle">LinkedIn</a></li>
-        <li><a href="https://www.flickr.com/photos/oneupmanshipwreck">Flickr</a></li>
+        <li><a href="https://www.quora.com/profile/Joe-Boyle-12">Quora</a></li>
         <li><a href="https://www.github.com/boblaublaw">GitHub</a></li>
+        <li><a href="https://instagram.com/boblaublaw">Instagram</a></li>
+        <li><a href="https://www.flickr.com/photos/oneupmanshipwreck">Flickr</a></li>
         </ul>
+        <br/>
+        Feel free to reach out to me by email.<br/><br/>
         <a id="emailme2" href="#">hello</a><br /><br />
         San Francisco, CA<br />
     </div>
