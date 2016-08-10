@@ -10,14 +10,17 @@
 	<title>Joe Boyle — Software Engineer</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />	
     <style type="text/css">
+      #intro { display:block; }
       #software { display:none; }
-      #invadv{ display:none; }
+      #invadv { display:none; }
+      #contact { display:none; }
     </style>
     <script language="javascript"> 
     <!--
         var STATE_INTRO = 0;
         var STATE_SOFTWARE = 1;
         var STATE_INVADV = 2;
+        var STATE_LINKS = 3;
         var stateNum = STATE_INTRO;
 
     function setState(nextState) {
@@ -26,20 +29,30 @@
         {
             case STATE_INTRO:
                 introState = 'block';
+                linkState = 'none';
                 softState = 'none';
                 invadvState = 'none';
                 break;
 
             case STATE_SOFTWARE:
                 introState = 'none';
+                linkState = 'none';
                 softState = 'block';
                 invadvState = 'none';
                 break;
 
             case STATE_INVADV:
                 introState = 'none';
+                linkState = 'none';
                 softState = 'none';
                 invadvState = 'block';
+                break;
+
+            case STATE_LINKS:
+                introState = 'none';
+                linkState = 'block';
+                softState = 'none';
+                invadvState = 'none';
                 break;
 
             default:
@@ -50,16 +63,12 @@
         {
             hza = document.getElementById('intro');
             hza.style.display = introState;
-        }
-        if (document.getElementById &&!document.all)
-        {
             hza = document.getElementById('software');
             hza.style.display = softState;
-        }
-        if (document.getElementById &&!document.all)
-        {
             hza = document.getElementById('invadv');
             hza.style.display = invadvState;
+            hza = document.getElementById('contact');
+            hza.style.display = linkState;
         }
     }
     //--> 
@@ -81,7 +90,7 @@
         <a href="http://www.imdb.com/name/nm6025769"><h3>Film <br /> Maker </h3></a>
         <br/>
         <br/>
-        <a href="#" onclick="setState(STATE_INTRO);"><h3>Links/ <br />Contact</a>
+        <a href="#" onclick="setState(STATE_LINKS);"><h3>Links/ <br />Contact</h3></a>
         <ul>
     </div>
     <div id="info">
@@ -89,9 +98,11 @@
         Welcome to the personal homepage of  Joe Boyle.<br><br>
 
         Links to my professional resumes can be found to the left, and social media links can be found below:<br><br>
-
+    </div>
+    <div id="contact" class="text">
         <ul>
         <li><a href="https://www.facebook.com/joe.boyle">Facebook</a></li>
+        <li><a href="https://www.quora.com/profile/Joe-Boyle-12">Quora</a></li>
         <li><a href="https://instagram.com/boblaublaw">Instagram</a></li>
         <li><a href="https://www.linkedin.com/in/joebboyle">LinkedIn</a></li>
         <li><a href="https://www.flickr.com/photos/oneupmanshipwreck">Flickr</a></li>
@@ -101,14 +112,20 @@
         San Francisco, CA<br />
     </div>
     <div id="invadv" class="text">
-        poo
+        <ul>
+        <li>Strategy/Goals</li>
+        <li>Founderspace</li>
+        <li>Batchery</li>
+        <li>angel.co</li>
+        <li></li>
+        </ul>
     </div>
     <div id="software" class="text">
 
-<h3>Professional Experience</h3>
+<h3>Software Development Experience</h3>
 
 <h4><a href="http://river.co">River Studios</a> San Francisco, CA</h4>
-<p><em>VR Software Developer (September 2015 &ndash; Present)</em></p>
+<p><em>VR Software Developer (September 2015 &ndash;  Jun 2016)</em></p>
 <ul>
 <li>Created video pipeline tools for optimized 360 degree video content</li>
 <li>Integrating Amazon Web Services for 360 degree video distribution</li>
