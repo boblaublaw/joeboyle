@@ -13,12 +13,14 @@
       #about { display:block; }
       #software { display:none; }
       #invadv { display:none; }
+      #projects { display: none; }
     </style>
     <script language="javascript"> 
     <!--
         var STATE_ABOUT = 0;
         var STATE_SOFTWARE = 1;
         var STATE_INVADV = 2;
+        var STATE_PROJECTS = 3;
 
     function setState(nextState) {
 
@@ -28,18 +30,28 @@
                 softState = 'block';
                 invadvState = 'none';
                 aboutState = 'none';
+                projectState = 'none';
                 break;
 
             case STATE_INVADV:
                 softState = 'none';
                 invadvState = 'block';
                 aboutState = 'none';
+                projectState = 'none';
                 break;
 
             case STATE_ABOUT:
                 softState = 'none';
                 invadvState = 'none';
                 aboutState = 'block';
+                projectState = 'none';
+                break;
+
+            case STATE_PROJECTS:
+                softState = 'none';
+                invadvState = 'none';
+                aboutState = 'none';
+                projectState = 'block';
                 break;
 
             default:
@@ -53,6 +65,8 @@
             hza.style.display = softState;
             hza = document.getElementById('invadv');
             hza.style.display = invadvState;
+            hza = document.getElementById('projects');
+            hza.style.display = projectState;
         }
     }
     //--> 
@@ -67,11 +81,11 @@
     <div id="menu">
         <a href="#" onclick="setState(STATE_ABOUT);"><h3>About</h3></a>
         <br />
+        <a href="#" onclick="setState(STATE_PROJECTS);"><h3>Projects</h3></a>
+        <br />
         <a href="#" onclick="setState(STATE_INVADV);"><h3>Investor <br /> Advisor </h3></a>
         <br />
         <a href="#" onclick="setState(STATE_SOFTWARE);"><h3>Software <br /> Developer </h3></a>
-        <br />
-        <a href="http://www.imdb.com/name/nm6025769" target="_blank"><h3>Film <br /> Maker </h3></a>
         <ul>
     </div>
     <div id="info">
@@ -98,6 +112,14 @@
         <h3>Investment Strategy/Goals</h3>
         As a new investor, Joe seeks to parlay his substantial startup experience and technical expertise into value-added follow-on angel investment and networking opportunities.  Areas of interest include Virtual Reality and Augmented Reality, though other domains are by no means excluded from consideration.<br /><br />
         <a href="https://angel.co/joe-boyle-1" target="_blank">AngelList profile</a><br />
+    </div>
+    <div id="projects" class="text">
+        <h3>Virtual Reality</h3>
+        <h3>Film & Photography</h3>
+        Joe is a longtime fan of digital photography. His photos can be found on <a href="https://www.flickr.com/photos/oneupmanshipwreck" target="_blank">Flickr</a> and <a href="https://www.instagram.com/boblaublaw/" target="_blank">Instagram.</a><br /><br />
+        In 2010 Joe began performing volunteer videography for <a href="https://sf.nerdnite.com/" target="_blank">Nerd Nite San Francisco</a> and now continues to direct the AV team's monthly shoot and subsequent edit, which is often posted on <a href="https://vimeo.com/nerdnitesf/" target="_blank">the Nerdnite SF Vimeo page.</a><br /><br />
+        In 2012 Joe joined the <a href="http://www.scarycow.com/" target="_blank">Scary Cow Film Co-op</a>, a volunteer film production community, performing a wide variety of production and post-production tasks, including producing two award winning short films.<br /><br />
+        <a href="http://www.imdb.com/name/nm6025769" target="_blank">Joe's IMDB profile can be found here.</a>
     </div>
     <div id="software" class="text">
 
