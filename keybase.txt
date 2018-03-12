@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/joeboyle
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://joeboyle.com
+  * I am joeboyle (https://keybase.io/joeboyle) on keybase.
+  * I have a public key ASAeWHg0f8lVDxaTvYVNF85lvUNTK12DJ-t7Rk5SEfSgOgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01201e5878347fc9550f1693bd854d17ce65bd43532b5d8327eb7b464e5211f4a03a0a",
+      "host": "keybase.io",
+      "kid": "01201e5878347fc9550f1693bd854d17ce65bd43532b5d8327eb7b464e5211f4a03a0a",
+      "uid": "7b6c59d2b687829592e361a3c4503819",
+      "username": "joeboyle"
+    },
+    "merkle_root": {
+      "ctime": 1520835644,
+      "hash": "2292a10edc738044b5cceccc0a2b72a2be63aad3cb1ab6de90ca12617711e75f09ed72e53afae8dd88f46a40f4430baa45396c4e64af632decf5d2999562a588",
+      "hash_meta": "645b868650a86fca8887c2e1b404dc5871d240974c7cce886191c4853207567b",
+      "seqno": 2222330
+    },
+    "service": {
+      "hostname": "joeboyle.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.45"
+  },
+  "ctime": 1520835692,
+  "expire_in": 504576000,
+  "prev": "9a2297850b97c005dc856429b09ad43c5a186ec36a6b678c9b519bd42ff5ad00",
+  "seqno": 11,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgHlh4NH/JVQ8Wk72FTRfOZb1DUytdgyfre0ZOUhH0oDoKp3BheWxvYWTFA0R7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMWU1ODc4MzQ3ZmM5NTUwZjE2OTNiZDg1NGQxN2NlNjViZDQzNTMyYjVkODMyN2ViN2I0NjRlNTIxMWY0YTAzYTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMWU1ODc4MzQ3ZmM5NTUwZjE2OTNiZDg1NGQxN2NlNjViZDQzNTMyYjVkODMyN2ViN2I0NjRlNTIxMWY0YTAzYTBhIiwidWlkIjoiN2I2YzU5ZDJiNjg3ODI5NTkyZTM2MWEzYzQ1MDM4MTkiLCJ1c2VybmFtZSI6ImpvZWJveWxlIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTIwODM1NjQ0LCJoYXNoIjoiMjI5MmExMGVkYzczODA0NGI1Y2NlY2NjMGEyYjcyYTJiZTYzYWFkM2NiMWFiNmRlOTBjYTEyNjE3NzExZTc1ZjA5ZWQ3MmU1M2FmYWU4ZGQ4OGY0NmE0MGY0NDMwYmFhNDUzOTZjNGU2NGFmNjMyZGVjZjVkMjk5OTU2MmE1ODgiLCJoYXNoX21ldGEiOiI2NDViODY4NjUwYTg2ZmNhODg4N2MyZTFiNDA0ZGM1ODcxZDI0MDk3NGM3Y2NlODg2MTkxYzQ4NTMyMDc1NjdiIiwic2Vxbm8iOjIyMjIzMzB9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiam9lYm95bGUuY29tIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC40NSJ9LCJjdGltZSI6MTUyMDgzNTY5MiwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI5YTIyOTc4NTBiOTdjMDA1ZGM4NTY0MjliMDlhZDQzYzVhMTg2ZWMzNmE2YjY3OGM5YjUxOWJkNDJmZjVhZDAwIiwic2Vxbm8iOjExLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQM3aAIZLKa5b5gjb1D5Cpn3PwhtH5swJcAKYhNJhc8SA570xMJuyUOVIWJCvFkwUVsGPNTMs2dzHdTfGI7BGhQSoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCCv9m+9oRopQkiii6uQ2ezaU4p4fO6Eg/HYK189cqdFbKN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/joeboyle
+
+==================================================================
+
