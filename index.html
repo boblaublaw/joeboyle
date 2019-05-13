@@ -35,15 +35,13 @@
 
         #about { display:block; }
         #software { display:none; }
-        #invadv { display:none; }
         #projects { display: none; }
     </style>
     <script language="javascript"> 
     <!--
         var STATE_ABOUT = 0;
         var STATE_SOFTWARE = 1;
-        var STATE_INVADV = 2;
-        var STATE_PROJECTS = 3;
+        var STATE_PROJECTS = 2;
 
     function setState(nextState) {
 
@@ -51,28 +49,18 @@
         {
             case STATE_SOFTWARE:
                 softState = 'block';
-                invadvState = 'none';
-                aboutState = 'none';
-                projectState = 'none';
-                break;
-
-            case STATE_INVADV:
-                softState = 'none';
-                invadvState = 'block';
                 aboutState = 'none';
                 projectState = 'none';
                 break;
 
             case STATE_ABOUT:
                 softState = 'none';
-                invadvState = 'none';
                 aboutState = 'block';
                 projectState = 'none';
                 break;
 
             case STATE_PROJECTS:
                 softState = 'none';
-                invadvState = 'none';
                 aboutState = 'none';
                 projectState = 'block';
                 break;
@@ -86,8 +74,6 @@
             hza.style.display = aboutState;
             hza = document.getElementById('software');
             hza.style.display = softState;
-            hza = document.getElementById('invadv');
-            hza.style.display = invadvState;
             hza = document.getElementById('projects');
             hza.style.display = projectState;
         }
@@ -104,8 +90,6 @@
     <div id="menu">
         <a href="#" onclick="setState(STATE_ABOUT);"><h3>About</h3></a>
         <br />
-        <a href="#" onclick="setState(STATE_INVADV);"><h3>Investor <br /> Advisor </h3></a>
-        <br />
         <a href="#" onclick="setState(STATE_PROJECTS);"><h3>Areas of <br />Interest</h3></a>
         <br />
         <a href="#" onclick="setState(STATE_SOFTWARE);"><h3>Software <br /> Developer </h3></a>
@@ -114,7 +98,7 @@
     <div id="info">
     <div id="about" class="text">
         <h3>About Joe</h3><br />
-        <p>Originally born and raised in Canada, Joe relocated to the US in 2000 to access the explosive opportunities in tech.  After working for a brief time in the New York Adtech world, Joe moved to California to join the computer security industry in 2001.  In 2014, Joe took time off to pursue passion projects in independent filmmaking.  In 2015, Joe pivoted to join the burgeoning community growing around Virtual Reality and Augmented Reality.  Most recently Joe launched <a target="_blank" href="http://lookingglassvr.com">Looking Glass VR</a> for Gear VR.</p><br />
+        <p>Originally born and raised in Canada, Joe relocated to the US in 2000 to access the explosive opportunities in tech.  After working for a brief time in the New York Adtech world, Joe moved to California to join the computer security industry in 2001.  In 2014, Joe took time off to pursue passion projects in independent filmmaking.  In 2015, Joe pivoted to join the burgeoning community growing around Virtual Reality and Augmented Reality.  Since then Joe has launched <a target="_blank" href="http://lookingglassvr.com">Looking Glass VR</a> on several mobile VR platforms and co-founded <a target="_blank" href="https://spatialfirst.com/">SpatialFirst, Inc.</a>, a mobile AR marketing platform for commercial real estate.</p><br />
         Joe can be reached by email at 
         <a id="emailme" href="#">hello</a><br /><br />
         San Francisco, CA<br /><br /><br />
@@ -126,28 +110,17 @@
         <li><a href="https://www.quora.com/profile/Joe-Boyle-12" target="_blank">Quora</a></li>
         <li><a href="https://www.github.com/boblaublaw" target="_blank">GitHub</a></li>
     </div>
-    <div id="invadv" class="text">
-        <h3>Mentoring & Advising</h3>
-        Joe actively mentors at the following startup incubators and accelerators:<br /><br />
-        <ul>
-        <li><a href="http://www.foundersspace.com/" target="_blank">Founderspace</a>, San Francisco, CA</li>
-        <!--li><a href="http://http://batchery.io/" target="_blank">The Batchery</a>, Oakland, CA</li-->
-        <li>More announced soon!</li>
-        </ul>
-        <h3>Investment Strategy/Goals</h3>
-        <p>As a new investor, Joe seeks to parlay his substantial startup experience and technical expertise into value-added follow-on angel investment and networking opportunities.  Areas of interest include Virtual Reality and Augmented Reality, though other domains are by no means excluded from consideration.</p><br>
-        <a href="https://angel.co/joe-boyle-1" target="_blank">AngelList profile</a><br />
-    </div>
     <div id="projects" class="text">
-        <h3>Virtual Reality</h3>
-        <p>JoeA is an active participant in the San Francisco Virtual Reality community, as a former member of <a href="http://uploadcollective.com/" target="_blank">the Upload Collective</a> and regularly attendee of various Meetup groups, including <a href="http://www.meetup.com/virtualreality/" target="_blank">San Francisco Virtual Reality</a>.</p> <br />
+        <h3>Spatial Computing</h3>
+        <p>Joe is an active participant in the San Francisco Virtual Reality community, as a former member of <a href="http://uploadcollective.com/" target="_blank">the Upload Collective</a> and regularly attendee of various Meetup groups, including <a href="http://www.meetup.com/virtualreality/" target="_blank">San Francisco Virtual Reality</a>.</p> <br />
         <h4>Recent Activities</h4>
         <ul>
+            <li>Cofounded <a href="https://spatialfirst.com/" target="_blank">SpatialFirst, Inc.</a></li>
             <li>Created and deployed <a href="http://lookingglassvr.com" target="_blank">Looking Glass VR</a>, a stereoscopic historical photo viewer for mobile VR (currently Gear VR and Google Cardboard).<ul><li>Featured in the Gear VR App Store Aug 24, 2017</li><li>Over 10k downloads within 3 days</li><li>4.2/5 rating</li></ul></li>
-        <li>Worked at <a href="http://riverstudios.com/" target="_blank">River Studios</a> (a division of <a href="http://rothenbergventures.com" target="_blank">Rothenberg Ventures</a>) as a technical contributor responsible for 360 video transcoding and distribution.</li>
-        <li>Team won "Best Scene" at SFVR #9 Virtual Reality Hackathon - May 30, 2015</li>
-        <li>Team won <a href="https://twitter.com/Web3DConsortium/status/602623321650302976" target="_blank">"Best of Show"</a> at <a href="http://vrhackathon.com/sf-may-2015.html" target="_blank">VR Hackathon #2 - May 24, 2015</a></li>
-        <li>Team won <a href="http://www.web3d.org/projects/vr-hackathon/fall-2014" target="_blank">"Best of Show"</a> at <a href="http://vrhackathon.com/sf-2014.html" target="_blank">VR Hackathon #1 - Oct 18, 2014</a></li>
+            <li>Worked at <a href="http://riverstudios.com/" target="_blank">River Studios</a> (a division of <a href="http://rothenbergventures.com" target="_blank">Rothenberg Ventures</a>) as a technical contributor responsible for 360 video transcoding and distribution.</li>
+            <li>Team won "Best Scene" at SFVR #9 Virtual Reality Hackathon - May 30, 2015</li>
+            <li>Team won <a href="https://twitter.com/Web3DConsortium/status/602623321650302976" target="_blank">"Best of Show"</a> at <a href="http://vrhackathon.com/sf-may-2015.html" target="_blank">VR Hackathon #2 - May 24, 2015</a></li>
+            <li>Team won <a href="http://www.web3d.org/projects/vr-hackathon/fall-2014" target="_blank">"Best of Show"</a> at <a href="http://vrhackathon.com/sf-2014.html" target="_blank">VR Hackathon #1 - Oct 18, 2014</a></li>
         </ul>
         <br />
         <h3>Film & Photography</h3>
@@ -159,56 +132,64 @@
 
 <h3>Software Development Experience</h3>
 
+<h4><a href="http://spatialfirst.com/" target="_blank">SpatialFirst, Inc.</a> San Francisco, CA</h4>
+<p><em>CTO & Co-founder (Aug 2017 &ndash; Present)</em></p>
+<ul>
+    <li>Product Specification and Prototyping in Unity 3D</li>
+    <li>Platform Prototyping using AWS (S3, Lambda, API Gateway)</li>
+    <li>Integration with Restful APIs of our service providers. (WRLD3D)</li>
+    <li>Recruiting and team management for a handful of freelancers</li>
+</ul>
+
 <h4><a href="http://lookingglassvr.com/" target="_blank">Looking Glass VR</a> San Francisco, CA</h4>
 <p><em>Producer & Lead Code (Jul 2016 &ndash;  Aug 2017)</em></p>
 <ul>
-<li>Conceived, designed, and executed a stereoscopic photo viewer for Mobile VR.</li>
-<li>Performed lead code, VR UX, asset management, and art design</li>
-<li>Managed six contractors in the execution of illustration, hand lettering, website design, website coding, and lighting scene optimization.</li>
+    <li>Conceived, designed, and executed a stereoscopic photo viewer for Mobile VR.</li>
+    <li>Performed lead code, VR UX, asset management, and art design</li>
+    <li>Managed six contractors in the execution of illustration, hand lettering, website design, website coding, and lighting scene optimization.</li>
 </ul>
 
 <h4><a href="http://riverstudios.com/" target="_blank">River Studios</a> San Francisco, CA</h4>
 <p><em>VR Software Developer (September 2015 &ndash;  Jun 2016)</em></p>
 <ul>
-<li>Created video pipeline tools for optimized 360 degree video content</li>
-<li>Integrated Amazon Web Services for 360 degree video distribution</li>
-<li>Researched and implemented non-equirectangular 360 degree video projections</li>
-</li>
+    <li>Created video pipeline tools for optimized 360 degree video content</li>
+    <li>Integrated Amazon Web Services for 360 degree video distribution</li>
+    <li>Researched and implemented non-equirectangular 360 degree video projections</li>
 </ul>
 
 <h4><a href="http://cryptography.com/" target="_blank">Cryptography Research, Inc.</a> (Acquired By Rambus) San Francisco, CA</h4>
 <p><em>Principal Staff Engineer (October 2009 &ndash; July 2014)</em></p>
 <ul>
-<li>Technical lead on customer and partner engagements for large scale secure data generation and delivery</li>
-<li>Specified and developed enterprise and custom-built components for management of the FPGA cluster</li>
-<li>Ported command-line ASIC tools from a R&amp;D proof-of-concept to the large scale production cluster using distributed job control systems</li>
+    <li>Technical lead on customer and partner engagements for large scale secure data generation and delivery</li>
+    <li>Specified and developed enterprise and custom-built components for management of the FPGA cluster</li>
+    <li>Ported command-line ASIC tools from a R&amp;D proof-of-concept to the large scale production cluster using distributed job control systems</li>
 </ul>
 
 <h4>nCircle Network Security (Acquired By Tripwire) San Francisco, CA</h4>
 <p><em>Senior Software Engineer (August 2001 &ndash; September 2009)</em></p>
 
 <ul>
-<li>Responsible for the design, development, and maintenance of many products and features, including the IDS, IPS event correlator, and risk metric analyzer</li>
-<li>Founding member of architecture review team responsible for approving all software product designs</li>
-<li>Named as lead inventor on <a href="http://www.google.com/patents/US8918883" target="_blank">topological risk analysis patent</a></li>
-<li>Participated in authoring product development standards and practices</li>
+    <li>Responsible for the design, development, and maintenance of many products and features, including the IDS, IPS event correlator, and risk metric analyzer</li>
+    <li>Founding member of architecture review team responsible for approving all software product designs</li>
+    <li>Named as lead inventor on <a href="http://www.google.com/patents/US8918883" target="_blank">topological risk analysis patent</a></li>
+    <li>Participated in authoring product development standards and practices</li>
 </ul>
 
 <h4>Primary Knowledge, Inc. (Acquired by DoubleClick) New York, New York</h4>
 <p><em>Team Lead (December 2000 &ndash; June 2001)</em></p>
 <p><em>Software Engineer (May 2000 &ndash; December 2000)</em></p>
 <ul>
-<li>Designed, specified, and implemented high-throughput C++ STL applications</li>
-<li>Designed, customized and maintained the distributed job control system and the process monitoring subsystem</li>
+    <li>Designed, specified, and implemented high-throughput C++ STL applications</li>
+    <li>Designed, customized and maintained the distributed job control system and the process monitoring subsystem</li>
 </ul>
 
 <h4><a href="http://www.pscl.com/" target="_blank">Process Solutions Canada Limited</a> (Edmonton, Alberta)</h4>
 
 <p><em>Control Systems Analyst (August 1997 &ndash; April 2000)</em></p>
 <ul>
-<li>Responsible for feature delivery and maintenance of the UNISON real-time distributed control system, including appliance monitoring, 
-    device drivers, ntworking and IPC, real-time fault-tolerant database backend</li>
-<li>Requirement specification, application design, implementation and testing for new applications and customer customizations</li>
+    <li>Responsible for feature delivery and maintenance of the UNISON real-time distributed control system, including appliance monitoring, 
+        device drivers, ntworking and IPC, real-time fault-tolerant database backend</li>
+    <li>Requirement specification, application design, implementation and testing for new applications and customer customizations</li>
 </ul>
 
 <hr/>
@@ -216,40 +197,40 @@
 <h3>Skills & Attributes</h3>
 <h4>Technologies</h4>
 <ul>
-<li>15+ years development experience with various distributed systems, including real-time control systems, batch job clusters, and peer-to-peer network models</li>
-<li>15+ years database development and management experience, including a proprietary real-time database, Oracle, PostgresQL, MySQL, and Amazon DynamoDB</li>
-<li>15+ years appliance development experience, including QNX, FreeBSD, Linux, and virtualization platforms such as AWS and VMware</li>
+    <li>15+ years development experience with various distributed systems, including real-time control systems, batch job clusters, and peer-to-peer network models</li>
+    <li>15+ years database development and management experience, including a proprietary real-time database, Oracle, PostgresQL, MySQL, and Amazon DynamoDB</li>
+    <li>15+ years appliance development experience, including QNX, FreeBSD, Linux, and virtualization platforms such as AWS and VMware</li>
 </ul>
 
 <h4>Development</h4>
 <ul>
-<li>Proficient in C systems programming and C++ and Python object oriented application development</li>
-<li>Experienced creating back-end and middleware using REST services on LAMP platforms</li>
-<li>Able to prototype rudimentary front-ends using HTML, Javascript, AJAX, CSS, and web-service APIs such as Google Maps</li>
-<li>Knowledgeable regarding cryptography: asymmetric, symmetric, and hybrid cryptosystems, PKI, as well as steganographic information hiding techniques</li>
-<li>Authored open source restricted shell variant <a href="https://github.com/scponly/scponly" target="_blank">scponly</a> (Active maintainer 2001-2011)</li>
+    <li>Proficient in C systems programming and C++ and Python object oriented application development</li>
+    <li>Experienced creating back-end and middleware using REST services on LAMP platforms</li>
+    <li>Able to prototype rudimentary front-ends using HTML, Javascript, AJAX, CSS, and web-service APIs such as Google Maps</li>
+    <li>Knowledgeable regarding cryptography: asymmetric, symmetric, and hybrid cryptosystems, PKI, as well as steganographic information hiding techniques</li>
+    <li>Authored open source restricted shell variant <a href="https://github.com/scponly/scponly" target="_blank">scponly</a> (Active maintainer 2001-2011)</li>
 </ul>
 
 <h4>Operations</h4>
 <ul>
-<li>Administrative and development expertise with UNIX based operating systems: Linux, BSD variants, and other legacy systems</li>
-<li>Very proficient with on-the-spot shell scripting using python, bourne shell variants, PERL, etc</li>
-<li>Knowledgeable designing and deploying data storage and delivery solutions</li>
+    <li>Administrative and development expertise with UNIX based operating systems: Linux, BSD variants, and other legacy systems</li>
+    <li>Very proficient with on-the-spot shell scripting using python, bourne shell variants, PERL, etc</li>
+    <li>Knowledgeable designing and deploying data storage and delivery solutions</li>
 </ul>
 
 <h4>Organizational</h4>
 <ul>
-<li>Experience authoring hiring plans, interview guidelines, and job descriptions for team growth</li>
-<li>Demonstrates team leadership in the form of technical mentoring, design, operational ownership, and project management on long-term projects</li>
-<li>Operates effectively in rapid prototyping scenarios as well as highly structured enterprise software efforts</li>
-<li>Excellent documentation, revision control, and bug tracking practices using many modern development tools (Jira, Confluence, Fisheye, Perforce, and Git)</li>
+    <li>Experience authoring hiring plans, interview guidelines, and job descriptions for team growth</li>
+    <li>Demonstrates team leadership in the form of technical mentoring, design, operational ownership, and project management on long-term projects</li>
+    <li>Operates effectively in rapid prototyping scenarios as well as highly structured enterprise software efforts</li>
+    <li>Excellent documentation, revision control, and bug tracking practices using many modern development tools (Jira, Confluence, Fisheye, Perforce, and Git)</li>
 </ul>
 
 
 <hr/>
 <h3>Education</h3>
 <ul>
-<li>B.Sc. (Computer Science), University of Saskatchewan, May 1997</li>
+    <li>B.Sc. (Computer Science), University of Saskatchewan, May 1997</li>
 </ul>
 
 <script type='text/javascript'>
