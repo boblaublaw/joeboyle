@@ -39,12 +39,18 @@
     </style>
     <script language="javascript"> 
     <!--
-        var STATE_ABOUT = 0;
-        var STATE_SOFTWARE = 1;
-        var STATE_PROJECTS = 2;
+    var STATE_ABOUT = 0;
+    var STATE_SOFTWARE = 1;
+    var STATE_PROJECTS = 2;
 
     function setState(nextState) {
-
+        if (nextState === undefined)
+        {
+            var params = getAllUrlParams(window.location.href);
+            if ("software" in params) nextState = STATE_SOFTWARE;
+            else if ("projects" in params) nextState = STATE_PROJECTS;
+            else nextState=STATE_ABOUT;
+        }
         switch (nextState)
         {
             case STATE_SOFTWARE:
@@ -64,7 +70,6 @@
                 aboutState = 'none';
                 projectState = 'block';
                 break;
-
             default:
                 pass;
         }
@@ -78,11 +83,51 @@
             hza.style.display = projectState;
         }
     }
+
+    function getAllUrlParams(url) {
+      var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+      var obj = {};
+      if (queryString) {
+        queryString = queryString.split('#')[0];
+        var arr = queryString.split('&');
+        for (var i = 0; i < arr.length; i++) {
+          var a = arr[i].split('=');
+          var paramName = a[0];
+          var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+          paramName = paramName.toLowerCase();
+          if (typeof paramValue === 'string') {
+            paramValue = paramValue.toLowerCase();
+          }
+          if (paramName.match(/\[(\d+)?\]$/)) {
+            var key = paramName.replace(/\[(\d+)?\]/, '');
+            if (!obj[key]) {
+                obj[key] = [];
+            }
+            if (paramName.match(/\[\d+\]$/)) {
+              var index = /\[(\d+)\]/.exec(paramName)[1];
+              obj[key][index] = paramValue;
+            } else {
+              obj[key].push(paramValue);
+            }
+          } else {
+            if (!obj[paramName]) {
+              obj[paramName] = paramValue;
+            } else if (obj[paramName] && typeof obj[paramName] === 'string'){
+              obj[paramName] = [obj[paramName]];
+              obj[paramName].push(paramValue);
+            } else {
+              obj[paramName].push(paramValue);
+            }
+          }
+        }
+      }
+      return obj;
+    }
     //--> 
 </script> 
 </head>
 
-<body>
+<body onload="setState()">
 <div id="page">
     <div id="header">
         <h2>Joe <br /> Boyle</h2>
@@ -138,7 +183,7 @@
     <li>Product Specification and Prototyping in Unity 3D</li>
     <li>Platform Prototyping using AWS (S3, Lambda, API Gateway)</li>
     <li>Integration with Restful APIs of our service providers. (WRLD3D)</li>
-    <li>Recruiting and team management for a handful of freelancers</li>
+    <li>Recruiting and team management</li>
 </ul>
 
 <h4><a href="http://lookingglassvr.com/" target="_blank">Looking Glass VR</a> San Francisco, CA</h4>
@@ -146,7 +191,7 @@
 <ul>
     <li>Conceived, designed, and executed a stereoscopic photo viewer for Mobile VR.</li>
     <li>Performed lead code, VR UX, asset management, and art design</li>
-    <li>Managed six contractors in the execution of illustration, hand lettering, website design, website coding, and lighting scene optimization.</li>
+    <li>Recruiting and team management</li>
 </ul>
 
 <h4><a href="http://riverstudios.com/" target="_blank">River Studios</a> San Francisco, CA</h4>
