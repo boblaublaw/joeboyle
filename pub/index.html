@@ -34,26 +34,27 @@
         .text ul li {  line-height: 22px; width: 96%; font-size: 16px; margin-bottom: 8px; }
 
         #about { display:block; }
-        #software { display:none; }
         #projects { display: none; }
+        #professional { display:none; }
     </style>
     <script language="javascript"> 
     <!--
     var STATE_ABOUT = 0;
-    var STATE_SOFTWARE = 1;
+    var STATE_PROFESSIONAL = 1;
     var STATE_PROJECTS = 2;
 
     function setState(nextState) {
         if (nextState === undefined)
         {
             var params = getAllUrlParams(window.location.href);
-            if ("software" in params) nextState = STATE_SOFTWARE;
+            if ("software" in params) nextState = STATE_PROFESSIONAL;
+            if ("professional" in params) nextState = STATE_PROFESSIONAL;
             else if ("projects" in params) nextState = STATE_PROJECTS;
-            else nextState=STATE_ABOUT;
+            else nextState=STATE_PROFESSIONAL;
         }
         switch (nextState)
         {
-            case STATE_SOFTWARE:
+            case STATE_PROFESSIONAL:
                 softState = 'block';
                 aboutState = 'none';
                 projectState = 'none';
@@ -77,7 +78,7 @@
         {
             hza = document.getElementById('about');
             hza.style.display = aboutState;
-            hza = document.getElementById('software');
+            hza = document.getElementById('professional');
             hza.style.display = softState;
             hza = document.getElementById('projects');
             hza.style.display = projectState;
@@ -133,55 +134,66 @@
         <h2>Joe <br /> Boyle</h2>
     </div>
     <div id="menu">
-        <a href="#" onclick="setState(STATE_ABOUT);"><h3>About</h3></a>
+        <a href="#" onclick="setState(STATE_PROFESSIONAL);"><h3>Professional <br /> Experience </h3></a>
         <br />
         <a href="#" onclick="setState(STATE_PROJECTS);"><h3>Areas of <br />Interest</h3></a>
         <br />
-        <a href="#" onclick="setState(STATE_SOFTWARE);"><h3>Software <br /> Developer </h3></a>
-        <ul>
+        <a href="#" onclick="setState(STATE_ABOUT);"><h3>About Joe</h3></a>
+        <br />
     </div>
     <div id="info">
     <div id="about" class="text">
-        <h3>About Joe</h3><br />
-        <p>Originally from Canada, Joe relocated to the US in 2000 to access opportunities in technology. After working for a brief time in New York ad-tech, Joe moved to California to join the computer security industry in 2001. In 2015, Joe pivoted to join the burgeoning community growing around Virtual Reality and Augmented Reality.  Since then Joe has launched <a target="_blank" href="http://lookingglassvr.com">Looking Glass VR</a> on several mobile VR platforms and co-founded <a target="_blank" href="https://spatialfirst.com/">SpatialFirst, Inc.</a>, a mobile AR marketing platform for commercial real estate.</p><br />
-        Joe can be reached by email at 
+	<p> Hi. I’m Joe. I’m into computers and the interesting things they make possible.</p><br />
+	<p>Professionally, I’ve worn a few different hats: software developer, tech lead, cofounder, team lead, and manager. Some of the dominant themes throughout my career have been distributed systems, protocols, networking, security, data storage, and cryptography. I am also interested in cameras, both as a hobbyist photographer and videographer, but also as they relate to the nascent field of teaching computers to see. I especially enjoy roles which allow me to draw upon more than one area of interest at a time.</p><br />
+	<p>I can be reached by email at
         <a id="emailme" href="#">hello</a><br /><br />
-        San Francisco, CA<br /><br /><br />
+        Portland, OR<br /><br /><br />
         <h3>Links</h3>
         Joe can be found elsewhere on the internet at:<br /><br />
-        <li><a href="https://keybase.io/joeboyle" target="_blank">Keybase</a></li>
-        <li><a href="https://twitter.com/3d_jb" target="_blank">Twitter</a></li>
         <li><a href="https://www.linkedin.com/in/joebboyle" target="_blank">LinkedIn</a></li>
         <li><a href="https://www.github.com/boblaublaw" target="_blank">GitHub</a></li>
     </div>
     <div id="projects" class="text">
         <h3>Spatial Computing</h3>
-        <p>Joe is an active participant in the San Francisco Virtual Reality community, as a former member of <a href="http://uploadcollective.com/" target="_blank">the Upload Collective</a> and regularly attendee of various Meetup groups, including <a href="http://www.meetup.com/virtualreality/" target="_blank">San Francisco Virtual Reality</a>.</p> <br />
-        <h4>Recent Activities</h4>
-        <ul>
-            <li>Cofounded <a href="https://spatialfirst.com/" target="_blank">SpatialFirst, Inc.</a></li>
-            <li>Created and deployed <a href="http://lookingglassvr.com" target="_blank">Looking Glass VR</a>, a stereoscopic historical photo viewer for mobile VR (currently Gear VR and Google Cardboard).<ul><li>Featured in the Gear VR App Store Aug 24, 2017</li><li>Over 10k downloads within 3 days</li><li>4.2/5 rating</li></ul></li>
-            <li>Worked at <a href="http://riverstudios.com/" target="_blank">River Studios</a> (a division of <a href="http://rothenbergventures.com" target="_blank">Rothenberg Ventures</a>) as a technical contributor responsible for 360 video transcoding and distribution.</li>
-            <li>Team won "Best Scene" at SFVR #9 Virtual Reality Hackathon - May 30, 2015</li>
-            <li>Team won <a href="https://twitter.com/Web3DConsortium/status/602623321650302976" target="_blank">"Best of Show"</a> at <a href="http://vrhackathon.com/sf-may-2015.html" target="_blank">VR Hackathon #2 - May 24, 2015</a></li>
-            <li>Team won <a href="http://www.web3d.org/projects/vr-hackathon/fall-2014" target="_blank">"Best of Show"</a> at <a href="http://vrhackathon.com/sf-2014.html" target="_blank">VR Hackathon #1 - Oct 18, 2014</a></li>
-        </ul>
+	<ul>
+		<li>Created and launched <a target="_blank" href="http://lookingglassvr.com">Looking Glass VR</a> on several mobile VR platforms</li>
+		<li>Co-founded <a target="_blank" href="https://spatialfirst.com/">SpatialFirst, Inc.</a>, a mobile AR marketing platform for commercial real estate.</li>
+		<li>Formerly active in several SF Bay Area VR/AR communities, such as  <a href="http://www.meetup.com/virtualreality/" target="_blank">San Francisco Virtual Reality</a>.</li>
+	</ul>
         <br />
         <h3>Film & Photography</h3>
-        <p>Joe is a longtime hobbyist photographer. His photos can be found on <a href="https://www.flickr.com/photos/oneupmanshipwreck" target="_blank">Flickr</a> and <a href="https://www.instagram.com/boblaublaw/" target="_blank">Instagram.</a></p><br />
-        <p>In 2010 Joe began performing volunteer videography for <a href="https://sf.nerdnite.com/" target="_blank">Nerd Nite San Francisco</a> and now continues to direct the AV team's monthly shoot and subsequent edit, which is often posted on <a href="https://vimeo.com/nerdnitesf/" target="_blank">the Nerdnite SF Vimeo page.</a></p><br />
-        <p>In 2012 Joe joined the <a href="http://www.scarycow.com/" target="_blank">Scary Cow Film Co-op</a>, a volunteer film production community, performing a wide variety of production and post-production tasks, including producing two award winning short films.  <a href="http://www.imdb.com/name/nm6025769" target="_blank">Joe's IMDB profile can be found here.</a></p>
+	<ul>
+		<li><a href="https://www.instagram.com/boblaublaw/" target="_blank">Instagram</a></li>
+		<li>Videography for <a href="https://sf.nerdnite.com/" target="_blank">Nerd Nite San Francisco</a> from 2010 through 2020</li>
+		<li>More information about previous short film projects can be found on <a href="http://www.imdb.com/name/nm6025769" target="_blank">IMDB</a></li>
+	</ul>
     </div>
-    <div id="software" class="text">
+    <div id="professional" class="text">
 
-<h3>Software Development Experience</h3>
+<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> Portland, OR </h4>
+<p><em>Leader, Software Engineering (Jun 2022 &ndash; Present)</em></p>
+<ul>
+    <li>Quarterly goal and capacity planning</li>
+    <li>Presenting to leadership on long running efforts to improve scalability metrics</li>
+    <li>Ensuring Meraki components meet security and compliance requirements</li>
+    <li>Capturing, surfacing, and eliminating technical debts</li>
+    <li>Raising documentation standards and establishing onboarding practices</li>
+    <li>Recruiting and team management</li>
+</ul>
+
+<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> San Francisco, CA </h4>
+<p><em>Technical Lead (Feb 2020 &ndash; Jun 2022)</em></p>
+<ul>
+	<li>Migrating legacy C++ monorepo build to Gitlab CI/CD</li>
+	<li>Maintaining and updating a Postgres based synchronization scheme in a sharded environment.</li>
+</ul>
 
 <h4><a href="http://spatialfirst.com/" target="_blank">SpatialFirst, Inc.</a> San Francisco, CA</h4>
-<p><em>CTO & Co-founder (Aug 2017 &ndash; Present)</em></p>
+<p><em>Co-founder (Aug 2017 &ndash; Present)</em></p>
 <ul>
     <li>Product Specification and Prototyping in Unity 3D</li>
     <li>Platform Prototyping using AWS (S3, Lambda, API Gateway)</li>
-    <li>Integration with RESTful APIs of our service providers. (WRLD3D)</li>
+    <li>Integration with RESTful APIs of our service providers.</li>
     <li>Recruiting and team management</li>
 </ul>
 
@@ -216,10 +228,10 @@
     <li>Responsible for the design, development, and maintenance of many products and features, including the IDS, IPS event correlator, and risk metric analyzer</li>
     <li>Founding member of architecture review team responsible for approving all software product designs</li>
     <li>Named as lead inventor on <a href="http://www.google.com/patents/US8918883" target="_blank">topological risk analysis patent</a></li>
-    <li>Participated in authoring product development standards and practices</li>
+    <li>Authored product development standards and practices</li>
 </ul>
 
-<h4>Primary Knowledge, Inc. (Acquired by DoubleClick) New York, New York</h4>
+<h4>Primary Knowledge, Inc. (Acquired by DoubleClick) New York, NY</h4>
 <p><em>Team Lead (December 2000 &ndash; June 2001)</em></p>
 <p><em>Software Engineer (May 2000 &ndash; December 2000)</em></p>
 <ul>
@@ -233,25 +245,33 @@
 <ul>
     <li>Responsible for feature delivery and maintenance of the UNISON real-time distributed control system, including appliance monitoring, 
         device drivers, networking and IPC, real-time fault-tolerant database</li>
-    <li>Requirement specification, application design, implementation and testing for new applications and customer customizations</li>
 </ul>
 
 <hr/>
 
 <h3>Skills & Attributes</h3>
+<h4>Organizational</h4>
+<ul>
+    <li>Hiring plans, interview guidelines, and job descriptions for team growth</li>
+    <li>Team leadership in the form of technical mentoring, design, operational ownership, and project management on long-term projects</li>
+    <li>From rapid prototyping all the way through to highly structured enterprise software projects</li>
+    <li>Excellent documentation, revision control, and bug tracking practices</li>
+</ul>
+
 <h4>Technologies</h4>
 <ul>
-    <li>15+ years development experience with various distributed systems, including real-time control systems, batch job clusters, and peer-to-peer network models</li>
-    <li>15+ years database development and management experience, including a proprietary real-time database, Oracle, PostgresQL, MySQL, and Amazon DynamoDB</li>
-    <li>15+ years appliance development experience, including QNX, FreeBSD, Linux, and virtualization platforms such as AWS and VMware</li>
+    <li>Various distributed systems, including real-time control systems, batch job clusters, and peer-to-peer network models</li>
+    <li>Database application development experience, including a proprietary real-time database, Oracle, PostgresQL, MySQL, and Amazon DynamoDB</li>
+    <li>Linux/unix development experience, including microkernel, BSD-based systems</li>
+    <li>Virtualizatiom &amp; containerization using VMWare, docker, kubernetes</li>
 </ul>
 
 <h4>Development</h4>
 <ul>
-    <li>Proficient in systems and object oriented programming using C/C++, Golang, and Python</li>
-    <li>Experienced creating back-end and middleware using REST services</li>
-    <li>Able to prototype rudimentary front-ends using HTML, Javascript, AJAX, CSS, and web-service APIs</li>
-    <li>Knowledgeable regarding cryptography: asymmetric, symmetric, and hybrid cryptosystems, PKI, as well as steganographic information hiding techniques</li>
+    <li>Expert in system and object oriented programming using C/C++ and Python</li>
+    <li>Familiarity with Scala, Ruby, Golang, Ansible
+    <li>RESTful APIs, Service Oriented Architectures</li>
+    <li>Cryptography, steganography, applied network security</li>
     <li>Authored open source restricted shell variant <a href="https://github.com/scponly/scponly" target="_blank">scponly</a> (Active maintainer 2001-2011)</li>
 </ul>
 
@@ -262,13 +282,6 @@
     <li>Knowledgeable designing and deploying secure, efficient data storage and delivery solutions</li>
 </ul>
 
-<h4>Organizational</h4>
-<ul>
-    <li>Experience authoring hiring plans, interview guidelines, and job descriptions for team growth</li>
-    <li>Demonstrates team leadership in the form of technical mentoring, design, operational ownership, and project management on long-term projects</li>
-    <li>Operates effectively in rapid prototyping scenarios as well as highly structured enterprise software projects</li>
-    <li>Excellent documentation, revision control, and bug tracking practices using  development tools (Atlassian tools, Perforce, Git, etc)</li>
-</ul>
 
 
 <hr/>
