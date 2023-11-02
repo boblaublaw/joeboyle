@@ -39,27 +39,48 @@
     </style>
     <script language="javascript"> 
     <!--
-    var STATE_CV = 0;
-    var STATE_PROJECTS = 1;
+    var STATE_ABOUT = 0;
+    var STATE_CV = 1;
+    var STATE_SKILLS = 2;
+    var STATE_PROJECTS = 3;
 
     function setState(nextState) {
         if (nextState === undefined)
         {
             var params = getAllUrlParams(window.location.href);
-            if ("software" in params) nextState = STATE_CV;
-            if ("cv" in params) nextState = STATE_CV;
+            if ("about" in params) nextState = STATE_ABOUT;
+	    else if ("cv" in params) nextState = STATE_CV;
+            else if ("skills" in params) nextState = STATE_SKILLS;
             else if ("projects" in params) nextState = STATE_PROJECTS;
-            else nextState=STATE_CV;
+            else nextState=STATE_ABOUT;
         }
         switch (nextState)
         {
+            case STATE_ABOUT:
+                aboutState = 'block';
+                cvState = 'none';
+                skillState = 'none';
+                projectState = 'none';
+                break;
+
             case STATE_CV:
-                softState = 'block';
+                aboutState = 'none';
+                cvState = 'block';
+                skillState = 'none';
+                projectState = 'none';
+                break;
+
+            case STATE_SKILLS:
+                aboutState = 'none';
+                cvState = 'none';
+                skillState = 'block';
                 projectState = 'none';
                 break;
 
             case STATE_PROJECTS:
-                softState = 'none';
+                aboutState = 'none';
+                cvState = 'none';
+                skillState = 'none';
                 projectState = 'block';
                 break;
 
@@ -68,8 +89,12 @@
         }
         if (document.getElementById &&!document.all)
         {
+            hza = document.getElementById('about');
+            hza.style.display = aboutState;
             hza = document.getElementById('cv');
-            hza.style.display = softState;
+            hza.style.display = cvState;
+            hza = document.getElementById('skills');
+            hza.style.display = skillState;
             hza = document.getElementById('projects');
             hza.style.display = projectState;
         }
@@ -124,7 +149,11 @@
         <h2>Joe <br /> Boyle</h2>
     </div>
     <div id="menu">
+	<a href="#" onclick="setState(STATE_ABOUT);"><h3>About <br />Joe</h3></a>
+	<br />
 	<a href="#" onclick="setState(STATE_CV);"><h3>Curriculum <br />Vitae</h3></a>
+	<br />
+	<a href="#" onclick="setState(STATE_SKILLS);"><h3>Skills <br />Abilities</h3></a>
 	<br />
 	<a href="#" onclick="setState(STATE_PROJECTS);"><h3>Other<br />Interests</h3></a>
 	<br />
@@ -151,14 +180,14 @@
 		<li><a href="https://www.github.com/boblaublaw" target="_blank">GitHub</a></li>
 	</ul>
     </div>
-    <div id="cv" class="text">
-	<h3>About Joe</h3>
+    <div id="about" class="text">
 	<p> Hi. I’m Joe. I’m into computers and the interesting things they make possible.</p><br />
 	<p>Professionally, I’ve worn a few different hats: software developer, tech lead, cofounder, team lead, and manager. Some of the dominant themes throughout my career have been distributed systems, protocols, networking, security, data storage, and cryptography. I am also interested in cameras, both as a hobbyist photographer and videographer, but also as they relate to the nascent field of computer vision, machine learning, and spatial capture. I'm known for having a very low threshold for creating spreadsheets and not being able to think without holding a whiteboard marker. I especially enjoy roles which allow me to draw upon more than one area of interest at a time.</p><br />
 	<p>I can be reached by email at
         <a id="emailme" href="#">hello</a><br /><br />
         Portland, OR<br /><br /><br />
-
+    </div>
+    <div id="cv" class="text">
 	<h3>Professional Experience</h3>
 	<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> - Leader, Software Engineering</h4>
 	<p><em>Jun 2022 &ndash; Present (Portland, OR)</em></p>
@@ -237,7 +266,8 @@
 	</ul>
 
 	<hr/>
-
+    </div>
+    <div id="skills" class="text">
 	<h3>Skills & Attributes</h3>
 	<h4>Organizational</h4>
 	<ul>
