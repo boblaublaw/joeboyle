@@ -40,16 +40,18 @@
     <script language="javascript"> 
     <!--
     var STATE_ABOUT = 0;
-    var STATE_CV = 1;
-    var STATE_SKILLS = 2;
-    var STATE_PROJECTS = 3;
+    var STATE_DEVCV = 1;
+    var STATE_LEADERCV = 2;
+    var STATE_SKILLS = 3;
+    var STATE_PROJECTS = 4;
 
     function setState(nextState) {
         if (nextState === undefined)
         {
             var params = getAllUrlParams(window.location.href);
             if ("about" in params) nextState = STATE_ABOUT;
-	    else if ("cv" in params) nextState = STATE_CV;
+	    else if ("developer" in params) nextState = STATE_DEVCV;
+	    else if ("leader" in params) nextState = STATE_LEADERCV;
             else if ("skills" in params) nextState = STATE_SKILLS;
             else if ("projects" in params) nextState = STATE_PROJECTS;
             else nextState=STATE_ABOUT;
@@ -58,28 +60,40 @@
         {
             case STATE_ABOUT:
                 aboutState = 'block';
-                cvState = 'none';
+                leaderCvState = 'none';
+                devCvState = 'none';
                 skillState = 'none';
                 projectState = 'none';
                 break;
 
-            case STATE_CV:
+            case STATE_LEADERCV:
                 aboutState = 'none';
-                cvState = 'block';
+                leaderCvState = 'block';
+                devCvState = 'none';
+                skillState = 'none';
+                projectState = 'none';
+                break;
+
+            case STATE_DEVCV:
+                aboutState = 'none';
+                leaderCvState = 'none';
+                devCvState = 'block';
                 skillState = 'none';
                 projectState = 'none';
                 break;
 
             case STATE_SKILLS:
                 aboutState = 'none';
-                cvState = 'none';
+                leaderCvState = 'none';
+                devCvState = 'none';
                 skillState = 'block';
                 projectState = 'none';
                 break;
 
             case STATE_PROJECTS:
                 aboutState = 'none';
-                cvState = 'none';
+                leaderCvState = 'none';
+                devCvState = 'none';
                 skillState = 'none';
                 projectState = 'block';
                 break;
@@ -91,8 +105,10 @@
         {
             hza = document.getElementById('about');
             hza.style.display = aboutState;
-            hza = document.getElementById('cv');
-            hza.style.display = cvState;
+            hza = document.getElementById('leader');
+            hza.style.display = leaderCvState;
+            hza = document.getElementById('developer');
+            hza.style.display = devCvState;
             hza = document.getElementById('skills');
             hza.style.display = skillState;
             hza = document.getElementById('projects');
@@ -149,13 +165,15 @@
         <h2>Joe <br /> Boyle</h2>
     </div>
     <div id="menu">
-	<a href="#" onclick="setState(STATE_ABOUT);"><h3>About <br />Joe</h3></a>
+	<a href="#" onclick="setState(STATE_ABOUT);"><h3>About</h3></a>
 	<br />
-	<a href="#" onclick="setState(STATE_CV);"><h3>Curriculum <br />Vitae</h3></a>
+	<a href="#" onclick="setState(STATE_LEADERCV);"><h3>Leader</h3></a>
 	<br />
-	<a href="#" onclick="setState(STATE_SKILLS);"><h3>Skills <br />Abilities</h3></a>
+	<a href="#" onclick="setState(STATE_DEVCV);"><h3>Developer</h3></a>
 	<br />
-	<a href="#" onclick="setState(STATE_PROJECTS);"><h3>Other<br />Interests</h3></a>
+	<a href="#" onclick="setState(STATE_SKILLS);"><h3>Skills</h3></a>
+	<br />
+	<a href="#" onclick="setState(STATE_PROJECTS);"><h3>Interests</h3></a>
 	<br />
     </div>
     <div id="info">
@@ -187,8 +205,8 @@
         <a id="emailme" href="#">hello</a><br /><br />
         Portland, OR<br /><br /><br />
     </div>
-    <div id="cv" class="text">
-	<h3>Professional Experience</h3>
+    <div id="leader" class="text">
+	<h3>Leadership Experience</h3>
 	<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> - Leader, Software Engineering</h4>
 	<p><em>Jun 2022 &ndash; Present (Portland, OR)</em></p>
 	<ul>
@@ -224,7 +242,31 @@
 	    <li>Recruiting and team management</li>
 	</ul>
 
-	<h4><a href="http://riverstudios.com/" target="_blank">River Studios</a> - VR Software Developer</h4>
+	<h4>Primary Knowledge, Inc. - ETL Team Lead</h4>
+	<p><em>May 2000 &ndash; June 2001 (New York, NY)</em></p>
+	<ul>
+	    <li>Designed, specified, and implemented high-throughput C++ STL applications</li>
+	    <li>Designed, customized and maintained the distributed job control system and the process monitoring subsystem</li>
+	</ul>
+    </div>
+    <div id="developer" class="text">
+	<h3>Software Developer Experience</h3>
+	<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> - Technical Lead</h4>
+	<p><em>Feb 2020 &ndash; Jun 2022 (San Francisco, CA)</em></p>
+	<ul>
+		<li>Migrating legacy C++ monorepo build to Gitlab CI/CD</li>
+		<li>Maintaining and updating a Postgres-based synchronization scheme in a sharded environment</li>
+	</ul>
+
+	<h4><a href="http://lookingglassvr.com/" target="_blank">Looking Glass VR</a> - Creator/Producer</h4>
+	<p><em>Jul 2016 &ndash;  Aug 2017 (San Francisco, CA)</em></p>
+	<ul>
+	    <li>Conceived, designed, and executed a stereoscopic photo viewer for Mobile VR</li>
+	    <li>Performed lead code, VR UX, asset management, and art design</li>
+	    <li>Recruiting and team management</li>
+	</ul>
+
+	<h4><a href="https://techcrunch.com/2020/06/28/with-doj-charges-disgraced-mike-rothenberg-could-now-be-facing-serious-jail-time/" target="_blank">River Studios</a> - VR Software Developer</h4>
 	<p><em>September 2015 &ndash;  Jun 2016 (San Francisco, CA)</em></p>
 	<ul>
 	    <li>Created video pipeline tools to optimized 360 degree video content</li>
