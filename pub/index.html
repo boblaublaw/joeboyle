@@ -6,71 +6,98 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="verify-v1" content="M77dNG/Jd3GinDzdPHLoc00nc5/46b0w6nv4ewAoxLw=" />
 	<meta name="language" content="en" />
-	<meta name="description" content="The personal and professional homepages of Joe Boyle." />
+	<meta name="description" content="The personal and professional homepage of Joe Boyle" />
 	<title>Joe Boyle</title>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <style type="text/css">
         * { margin: 0; padding: 0; font-family: "Book Antiqua", Baskerville, "Baskerville", Garamond, Georgia, "Georgia", Times, "Times New Roman", serif ;}
-        body { background: #000000;  background: #ffffff; color: #555}
+        body { background: #000;  background: #fff; color: #555}
 
         h2 { font-variant: small-caps; font-size: 45px; width: 90%; line-height: 45px; display: block; letter-spacing:0px; margin: 0 0 8px 0; font-weight: normal;  }
         h3 { font-variant: small-caps; font-size: 25px; width: 90%; line-height: 30px; display: block; letter-spacing:0px; margin: 0 0 8px 0; font-weight: normal;  }
+        h4 { font-variant: small-caps; font-size: 18px; line-height: 30px; margin: 0; font-weight: 300; color:#000000 }
 
-        a {  color: #AAA; text-decoration: none }
-        a:hover { color: #000000; text-decoration: none; }
+        a {  color: #00F; text-decoration: none }
+        a:hover { color: #00F; text-decoration: underline; }
 
-        #page { width: 774px; margin: 0 auto 0 auto;  padding: 100px 0 100px 0; margin-top: -60px; margin-bottom: 34px;}
+        #page { width: 974px; margin: 0 auto 0 auto;  padding: 100px 0 100px 0; margin-top: -60px; margin-bottom: 34px;}
         #header { margin-bottom: 65px; margin-left: -65px; }
         #menu { float: left; width: 153px; margin-bottom: 80px; }
         #menu ul { margin-top: 40px; list-style-type: none;  }
         #menu li { line-height: 25px;  }
-        #info { float: right; width: 574px; margin-bottom: 80px; }
+        #menu a { color: #555;  }
+        #info { float: right; width: 774px; margin-bottom: 80px; }
 
         .text {  }
-        .text h4 { font-variant: small-caps; margin: 0; font-weight: normal; color:#000000 }
         .text p { text-align: justify; line-height: 24px;width: 96%; font-size: 16px; }
         .text hr { height: 1px; background: #E4E4E4; color: #E4E4E4; margin-bottom: 40px; border: 0; }
         .text ul { margin: 4px 0 40px 20px; list-style-type: square; }
         .text ul li {  line-height: 22px; width: 96%; font-size: 16px; margin-bottom: 8px; }
 
-        #about { display:block; }
         #projects { display: none; }
-        #professional { display:none; }
+        #cv { display:none; }
     </style>
     <script language="javascript"> 
     <!--
     var STATE_ABOUT = 0;
-    var STATE_PROFESSIONAL = 1;
-    var STATE_PROJECTS = 2;
+    var STATE_DEVCV = 1;
+    var STATE_LEADERCV = 2;
+    var STATE_SKILLS = 3;
+    var STATE_PROJECTS = 4;
 
     function setState(nextState) {
         if (nextState === undefined)
         {
             var params = getAllUrlParams(window.location.href);
-            if ("software" in params) nextState = STATE_PROFESSIONAL;
-            if ("professional" in params) nextState = STATE_PROFESSIONAL;
+            if ("about" in params) nextState = STATE_ABOUT;
+	    else if ("developer" in params) nextState = STATE_DEVCV;
+	    else if ("leader" in params) nextState = STATE_LEADERCV;
+            else if ("skills" in params) nextState = STATE_SKILLS;
             else if ("projects" in params) nextState = STATE_PROJECTS;
-            else nextState=STATE_PROFESSIONAL;
+            else nextState=STATE_ABOUT;
         }
         switch (nextState)
         {
-            case STATE_PROFESSIONAL:
-                softState = 'block';
-                aboutState = 'none';
+            case STATE_ABOUT:
+                aboutState = 'block';
+                leaderCvState = 'none';
+                devCvState = 'none';
+                skillState = 'none';
                 projectState = 'none';
                 break;
 
-            case STATE_ABOUT:
-                softState = 'none';
-                aboutState = 'block';
+            case STATE_LEADERCV:
+                aboutState = 'none';
+                leaderCvState = 'block';
+                devCvState = 'none';
+                skillState = 'none';
+                projectState = 'none';
+                break;
+
+            case STATE_DEVCV:
+                aboutState = 'none';
+                leaderCvState = 'none';
+                devCvState = 'block';
+                skillState = 'none';
+                projectState = 'none';
+                break;
+
+            case STATE_SKILLS:
+                aboutState = 'none';
+                leaderCvState = 'none';
+                devCvState = 'none';
+                skillState = 'block';
                 projectState = 'none';
                 break;
 
             case STATE_PROJECTS:
-                softState = 'none';
                 aboutState = 'none';
+                leaderCvState = 'none';
+                devCvState = 'none';
+                skillState = 'none';
                 projectState = 'block';
                 break;
+
             default:
                 pass;
         }
@@ -78,8 +105,12 @@
         {
             hza = document.getElementById('about');
             hza.style.display = aboutState;
-            hza = document.getElementById('professional');
-            hza.style.display = softState;
+            hza = document.getElementById('leader');
+            hza.style.display = leaderCvState;
+            hza = document.getElementById('developer');
+            hza.style.display = devCvState;
+            hza = document.getElementById('skills');
+            hza.style.display = skillState;
             hza = document.getElementById('projects');
             hza.style.display = projectState;
         }
@@ -134,31 +165,30 @@
         <h2>Joe <br /> Boyle</h2>
     </div>
     <div id="menu">
-        <a href="#" onclick="setState(STATE_PROFESSIONAL);"><h3>Professional <br /> Experience </h3></a>
-        <br />
-        <a href="#" onclick="setState(STATE_PROJECTS);"><h3>Areas of <br />Interest</h3></a>
-        <br />
-        <a href="#" onclick="setState(STATE_ABOUT);"><h3>About Joe</h3></a>
-        <br />
+	<a href="#" onclick="setState(STATE_ABOUT);"><h3>About</h3></a>
+	<br />
+	<a href="#" onclick="setState(STATE_LEADERCV);"><h3>Leader</h3></a>
+	<br />
+	<a href="#" onclick="setState(STATE_DEVCV);"><h3>Developer</h3></a>
+	<br />
+	<a href="#" onclick="setState(STATE_SKILLS);"><h3>Skills</h3></a>
+	<br />
+	<a href="#" onclick="setState(STATE_PROJECTS);"><h3>Interests</h3></a>
+	<br />
     </div>
     <div id="info">
-    <div id="about" class="text">
-	<p> Hi. I’m Joe. I’m into computers and the interesting things they make possible.</p><br />
-	<p>Professionally, I’ve worn a few different hats: software developer, tech lead, cofounder, team lead, and manager. Some of the dominant themes throughout my career have been distributed systems, protocols, networking, security, data storage, and cryptography. I am also interested in cameras, both as a hobbyist photographer and videographer, but also as they relate to the nascent field of computer vision, machine learning, and spatial capture. I especially enjoy roles which allow me to draw upon more than one area of interest at a time.</p><br />
-	<p>I can be reached by email at
-        <a id="emailme" href="#">hello</a><br /><br />
-        Portland, OR<br /><br /><br />
-        <h3>Links</h3>
-        Joe can be found elsewhere on the internet at:<br /><br />
-        <li><a href="https://www.linkedin.com/in/joebboyle" target="_blank">LinkedIn</a></li>
-        <li><a href="https://www.github.com/boblaublaw" target="_blank">GitHub</a></li>
-    </div>
     <div id="projects" class="text">
+        <h3>Machine Learning & Computer Vision</h3>
+	<ul>
+		<li>Currently working through Professor Jeff Heaton's "<a target="_blank" href="https://sites.wustl.edu/jeffheaton/t81-558/">Applications of Deep Neural Networks</a>"</li>
+		<li>Creating and generating Gaussian Splats from <a target="_blank" href="http://dev.joeboyle.com/splat/">previous photogrammetry projects</a></li>
+	</ul>
+        <br />
         <h3>Spatial Computing</h3>
 	<ul>
 		<li>Created and launched <a target="_blank" href="http://lookingglassvr.com">Looking Glass VR</a> on several mobile VR platforms</li>
-		<li>Co-founded <a target="_blank" href="https://spatialfirst.com/">SpatialFirst, Inc.</a>, a mobile AR marketing platform for commercial real estate.</li>
-		<li>Formerly active in several SF Bay Area VR/AR communities, such as  <a href="http://www.meetup.com/virtualreality/" target="_blank">San Francisco Virtual Reality</a>.</li>
+		<li>Co-founded <a target="_blank" href="https://spatialfirst.com/">SpatialFirst, Inc.</a>, a mobile AR marketing platform for commercial real estate</li>
+		<li>Formerly active in several SF Bay Area VR/AR communities, such as  <a href="http://www.meetup.com/virtualreality/" target="_blank">San Francisco Virtual Reality</a></li>
 	</ul>
         <br />
         <h3>Film & Photography</h3>
@@ -167,148 +197,182 @@
 		<li>Videography for <a href="https://sf.nerdnite.com/" target="_blank">Nerd Nite San Francisco</a> from 2010 through 2020</li>
 		<li>More information about previous short film projects can be found on <a href="http://www.imdb.com/name/nm6025769" target="_blank">IMDB</a></li>
 	</ul>
+        <h3>Links</h3>
+        Joe can be found elsewhere on the internet at:<br /><br />
+	<ul>
+		<li><a href="https://www.linkedin.com/in/joebboyle" target="_blank">LinkedIn</a></li>
+		<li><a href="https://www.github.com/boblaublaw" target="_blank">GitHub</a></li>
+	</ul>
     </div>
-    <div id="professional" class="text">
+    <div id="about" class="text">
+	<p> Hi. I’m Joe. I’m into computers and the interesting things they make possible.</p><br />
+	<p>Professionally, I’ve worn a few different hats: software developer, tech lead, cofounder, team lead, and manager. Some of the dominant themes throughout my career have been distributed systems, protocols, networking, security, data storage, and cryptography. I am also interested in cameras, both as a hobbyist photographer and videographer, but also as they relate to the nascent field of computer vision, machine learning, and spatial capture. I'm known for having a very low threshold for creating spreadsheets and not being able to think without holding a whiteboard marker. I especially enjoy roles which allow me to draw upon more than one area of interest at a time.</p><br />
+	<p>I can be reached by email at
+        <a id="emailme" href="#">hello</a><br /><br />
+        Portland, OR<br /><br /><br />
+    </div>
+    <div id="leader" class="text">
+	<h3>Leadership Experience</h3>
+	<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> - Leader, Software Engineering</h4>
+	<p><em>Jun 2022 &ndash; Present (Portland, OR)</em></p>
+	<ul>
+	    <li>Quarterly goal and capacity planning</li>
+	    <li>Presenting to leadership on long running efforts to improve scalability metrics</li>
+	    <li>Ensuring Meraki components meet security and compliance requirements</li>
+	    <li>Capturing, surfacing, and eliminating technical debts</li>
+	    <li>Raising documentation standards and establishing onboarding practices</li>
+	    <li>Recruiting and team management</li>
+	</ul>
 
-<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> Portland, OR </h4>
-<p><em>Leader, Software Engineering (Jun 2022 &ndash; Present)</em></p>
-<ul>
-    <li>Quarterly goal and capacity planning</li>
-    <li>Presenting to leadership on long running efforts to improve scalability metrics</li>
-    <li>Ensuring Meraki components meet security and compliance requirements</li>
-    <li>Capturing, surfacing, and eliminating technical debts</li>
-    <li>Raising documentation standards and establishing onboarding practices</li>
-    <li>Recruiting and team management</li>
-</ul>
+	<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> - Technical Lead</h4>
+	<p><em>Feb 2020 &ndash; Jun 2022 (San Francisco, CA)</em></p>
+	<ul>
+		<li>Migrating legacy C++ monorepo build to Gitlab CI/CD</li>
+		<li>Maintaining and updating a Postgres-based synchronization scheme in a sharded environment</li>
+	</ul>
 
-<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> San Francisco, CA </h4>
-<p><em>Technical Lead (Feb 2020 &ndash; Jun 2022)</em></p>
-<ul>
-	<li>Migrating legacy C++ monorepo build to Gitlab CI/CD</li>
-	<li>Maintaining and updating a Postgres based synchronization scheme in a sharded environment.</li>
-</ul>
+	<h4><a href="https://www.crunchbase.com/organization/spatialfirst">SpatialFirst, Inc.</a> - Co-founder</h4>
+	<p><em>Aug 2017 &ndash; Feb 2020 (San Francisco, CA)</em></p>
+	<ul>
+	    <li>Product Specification and Prototyping in Unity 3D</li>
+	    <li>Platform Prototyping using AWS (S3, Lambda, and API Gateway)</li>
+	    <li>Integration with RESTful APIs of our service providers</li>
+	    <li>Recruiting and team management</li>
+	</ul>
 
-<h4><a href="http://spatialfirst.com/" target="_blank">SpatialFirst, Inc.</a> San Francisco, CA</h4>
-<p><em>Co-founder (Aug 2017 &ndash; Present)</em></p>
-<ul>
-    <li>Product Specification and Prototyping in Unity 3D</li>
-    <li>Platform Prototyping using AWS (S3, Lambda, API Gateway)</li>
-    <li>Integration with RESTful APIs of our service providers.</li>
-    <li>Recruiting and team management</li>
-</ul>
+	<h4><a href="http://lookingglassvr.com/" target="_blank">Looking Glass VR</a> - Creator/Producer</h4>
+	<p><em>Jul 2016 &ndash;  Aug 2017 (San Francisco, CA)</em></p>
+	<ul>
+	    <li>Conceived, designed, and executed a stereoscopic photo viewer for Mobile VR</li>
+	    <li>Performed lead code, VR UX, asset management, and art design</li>
+	    <li>Recruiting and team management</li>
+	</ul>
 
-<h4><a href="http://lookingglassvr.com/" target="_blank">Looking Glass VR</a> San Francisco, CA</h4>
-<p><em>Producer/Creator (Jul 2016 &ndash;  Aug 2017)</em></p>
-<ul>
-    <li>Conceived, designed, and executed a stereoscopic photo viewer for Mobile VR.</li>
-    <li>Performed lead code, VR UX, asset management, and art design</li>
-    <li>Recruiting and team management</li>
-</ul>
+	<h4>Primary Knowledge, Inc. - ETL Team Lead</h4>
+	<p><em>May 2000 &ndash; June 2001 (New York, NY)</em></p>
+	<ul>
+	    <li>Designed, specified, and implemented high-throughput C++ STL applications</li>
+	    <li>Designed, customized and maintained the distributed job control system and the process monitoring subsystem</li>
+	</ul>
+    </div>
+    <div id="developer" class="text">
+	<h3>Software Developer Experience</h3>
+	<h4><a href="https://meraki.cisco.com/" target="_blank">Cisco Meraki</a> - Technical Lead</h4>
+	<p><em>Feb 2020 &ndash; Jun 2022 (San Francisco, CA)</em></p>
+	<ul>
+		<li>Migrating legacy C++ monorepo build to Gitlab CI/CD</li>
+		<li>Maintaining and updating a Postgres-based synchronization scheme in a sharded environment</li>
+	</ul>
 
-<h4><a href="http://riverstudios.com/" target="_blank">River Studios</a> San Francisco, CA</h4>
-<p><em>VR Software Developer (September 2015 &ndash;  Jun 2016)</em></p>
-<ul>
-    <li>Created video pipeline tools for optimized 360 degree video content</li>
-    <li>Integrated Amazon Web Services for 360 degree video distribution</li>
-    <li>Researched and implemented non-equirectangular 360 degree video projections</li>
-</ul>
+	<h4><a href="http://lookingglassvr.com/" target="_blank">Looking Glass VR</a> - Creator/Producer</h4>
+	<p><em>Jul 2016 &ndash;  Aug 2017 (San Francisco, CA)</em></p>
+	<ul>
+	    <li>Conceived, designed, and executed a stereoscopic photo viewer for Mobile VR</li>
+	    <li>Performed lead code, VR UX, asset management, and art design</li>
+	    <li>Recruiting and team management</li>
+	</ul>
 
-<h4><a href="http://cryptography.com/" target="_blank">Cryptography Research, Inc.</a> (Acquired By Rambus) San Francisco, CA</h4>
-<p><em>Principal Staff Engineer (October 2009 &ndash; July 2014)</em></p>
-<ul>
-    <li>Technical lead on customer and partner engagements for large scale secure data generation and delivery</li>
-    <li>Specified and developed enterprise and custom-built components for management of the FPGA cluster</li>
-    <li>Ported command-line ASIC tools from a R&amp;D proof-of-concept to the large scale production cluster using distributed job control systems</li>
-</ul>
+	<h4><a href="https://techcrunch.com/2020/06/28/with-doj-charges-disgraced-mike-rothenberg-could-now-be-facing-serious-jail-time/" target="_blank">River Studios</a> - VR Software Developer</h4>
+	<p><em>September 2015 &ndash;  Jun 2016 (San Francisco, CA)</em></p>
+	<ul>
+	    <li>Created video pipeline tools to optimized 360 degree video content</li>
+	    <li>Distributed 360 video content via Cloudfront</li>
+	    <li>Researched and implemented non-equirectangular 360 degree video projections</li>
+	</ul>
 
-<h4>nCircle Network Security (Acquired By Tripwire) San Francisco, CA</h4>
-<p><em>Senior Software Engineer (August 2001 &ndash; September 2009)</em></p>
+	<h4><a href="https://www.crunchbase.com/organization/cryptography-research">Cryptography Research, Inc. (now Rambus, Inc)</a> - Principal Staff Engineer</h4>
+	<p><em>October 2009 &ndash; July 2014 (San Francisco, CA)</em></p>
+	<ul>
+	    <li>Technical lead on customer and partner engagements for large-scale secure data generation and delivery</li>
+	    <li>Specified and developed enterprise and custom-built components for management of the FPGA cluster</li>
+	    <li>Ported command-line ASIC tools from a R&amp;D proof-of-concept to the large-scale production cluster using distributed job control systems</li>
+	</ul>
 
-<ul>
-    <li>Responsible for the design, development, and maintenance of many products and features, including the IDS, IPS event correlator, and risk metric analyzer</li>
-    <li>Founding member of architecture review team responsible for approving all software product designs</li>
-    <li>Named as lead inventor on <a href="http://www.google.com/patents/US8918883" target="_blank">topological risk analysis patent</a></li>
-    <li>Authored product development standards and practices</li>
-</ul>
+	<h4><a href="https://www.crunchbase.com/organization/ncircle-network-security">nCircle Network Security (now Tripwire)</a> - Senior Software Engineer</h4>
+	<p><em>August 2001 &ndash; September 2009 (San Francisco, CA)</em></p>
 
-<h4>Primary Knowledge, Inc. (Acquired by DoubleClick) New York, NY</h4>
-<p><em>Team Lead (December 2000 &ndash; June 2001)</em></p>
-<p><em>Software Engineer (May 2000 &ndash; December 2000)</em></p>
-<ul>
-    <li>Designed, specified, and implemented high-throughput C++ STL applications</li>
-    <li>Designed, customized and maintained the distributed job control system and the process monitoring subsystem</li>
-</ul>
+	<ul>
+	    <li>Responsible for the design, development, and maintenance of many products and features, including the IDS, IPS event correlator, and risk metric analyzer</li>
+	    <li>Founding member of architecture review team responsible for approving all software product designs</li>
+	    <li>Named as lead inventor on <a href="http://www.google.com/patents/US8918883" target="_blank">topological risk analysis patent</a></li>
+	    <li>Authored product development standards and practices</li>
+	</ul>
 
-<h4><a href="http://www.pscl.com/" target="_blank">Process Solutions Canada Limited</a> (Edmonton, Alberta)</h4>
+	<h4>Primary Knowledge, Inc. - ETL Team Lead</h4>
+	<p><em>May 2000 &ndash; June 2001 (New York, NY)</em></p>
+	<ul>
+	    <li>Designed, specified, and implemented high-throughput C++ STL applications</li>
+	    <li>Designed, customized and maintained the distributed job control system and the process monitoring subsystem</li>
+	</ul>
 
-<p><em>Control Systems Analyst (August 1997 &ndash; April 2000)</em></p>
-<ul>
-    <li>Responsible for feature delivery and maintenance of the UNISON real-time distributed control system, including appliance monitoring, 
-        device drivers, networking and IPC, real-time fault-tolerant database</li>
-</ul>
+	<h4><a href="http://www.pscl.com/" target="_blank">Process Solutions Canada Limited</a> - Control Systems Analyst</h4>
 
-<hr/>
+	<p><em>August 1997 &ndash; April 2000 (Edmonton, AB, Canada)</em></p>
+	<ul>
+	    <li>Responsible for feature delivery and maintenance of the UNISON real-time distributed control system, including appliance monitoring, 
+		device drivers, networking and IPC, real-time fault-tolerant database</li>
+	</ul>
 
-<h3>Skills & Attributes</h3>
-<h4>Organizational</h4>
-<ul>
-    <li>Hiring plans, interview guidelines, and job descriptions for team growth</li>
-    <li>Team leadership in the form of technical mentoring, design, operational ownership, and project management on long-term projects</li>
-    <li>From rapid prototyping all the way through to highly structured enterprise software projects</li>
-    <li>Excellent documentation, revision control, and bug tracking practices</li>
-</ul>
+	<hr/>
+    </div>
+    <div id="skills" class="text">
+	<h3>Skills & Attributes</h3>
+	<h4>Organizational</h4>
+	<ul>
+	    <li>Leadership, technical mentoring, team building, and project management</li>
+	    <li>Full software lifecycle management</li>
+	    <li>Disciplined approach to documentation, revision control, and work tracking</li>
+	    <li>Hiring plans, interview guidelines, and job descriptions</li>
+	</ul>
 
-<h4>Technologies</h4>
-<ul>
-    <li>Various distributed systems, including real-time control systems, batch job clusters, and peer-to-peer network models</li>
-    <li>Database application development experience, including a proprietary real-time database, Oracle, PostgresQL, MySQL, and Amazon DynamoDB</li>
-    <li>Linux/unix development experience, including microkernel, BSD-based systems</li>
-    <li>Virtualizatiom &amp; containerization using VMWare, docker, kubernetes</li>
-</ul>
+	<h4>Technologies</h4>
+	<ul>
+	    <li>Distributed systems, including real-time control systems, batch job management, ETL, and data infrastructure</li>
+	    <li>Database internals, database client/server, PostgresQL, MySQL, etc</li>
+	    <li>Linux/UNIX development experience, microkernel (QNX), and BSD-based systems</li>
+	    <li>Cryptography, steganography, applied network security</li>
+	    <li>Virtualizatiom &amp; containerization</li>
+	</ul>
 
-<h4>Development</h4>
-<ul>
-    <li>Expert in system and object oriented programming using C/C++ and Python</li>
-    <li>Familiarity with Scala, Ruby, Golang, Ansible
-    <li>RESTful APIs, Service Oriented Architectures</li>
-    <li>Cryptography, steganography, applied network security</li>
-    <li>Authored open source restricted shell variant <a href="https://github.com/scponly/scponly" target="_blank">scponly</a> (Active maintainer 2001-2011)</li>
-</ul>
+	<h4>Development</h4>
+	<ul>
+	    <li>Expert in system and object-oriented programming using C/C++ and Python</li>
+	    <li>Familiarity with Scala, Ruby, Golang, Ansible</li>
+	    <li>RESTful APIs, Service Oriented Architectures</li>
+	    <li>Authored open source restricted shell variant <a href="https://github.com/scponly/scponly" target="_blank">scponly</a> (Active maintainer 2001-2011)</li>
+	</ul>
 
-<h4>Operations</h4>
-<ul>
-    <li>Administrative and development expertise with UNIX based operating systems: Linux, BSD variants, and others</li>
-    <li>Very proficient with shell scripting, Python, etc</li>
-    <li>Knowledgeable designing and deploying secure, efficient data storage and delivery solutions</li>
-</ul>
+	<h4>Operations</h4>
+	<ul>
+	    <li>Many UNIX-based operating systems: Linux, BSD variants, etc</li>
+	    <li>CI/CD Gitlab, Jenkins, and various source control systems (Git, Subversion, Perforce)</li>
+	    <li>Knowledgeable designing and deploying secure, efficient data storage and delivery solutions</li>
+	</ul>
 
+	<hr/>
+	<h3>Education</h3>
+	<ul>
+	    <li>B.Sc. (Computer Science), University of Saskatchewan, May 1997</li>
+	</ul>
 
-
-<hr/>
-<h3>Education</h3>
-<ul>
-    <li>B.Sc. (Computer Science), University of Saskatchewan, May 1997</li>
-</ul>
-
-<script type='text/javascript'>
-    // foil spam bots
-    var mta = '@joeboyle.com';
-    var email ='hello' + mta;
-    document.getElementById('emailme').innerHTML += mta;
-    document.getElementById('emailme').href = 'mailto:' + email;
-</script>
-
-</div>
+	<script type='text/javascript'>
+	    // foil spam bots
+	    var mta = '@joeboyle.com';
+	    var email ='hello' + mta;
+	    document.getElementById('emailme').innerHTML += mta;
+	    document.getElementById('emailme').href = 'mailto:' + email;
+	</script>
+	</div>
 </div>
 </div>
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-8587395-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+	try {
+		var pageTracker = _gat._getTracker("UA-8587395-1");
+		pageTracker._trackPageview();
+	} catch(err) {}</script>
 </body>
 </html>
