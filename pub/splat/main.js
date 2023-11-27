@@ -723,7 +723,7 @@ void main () {
 `.trim();
 
 let defaultViewMatrix = [
-    0.03,-0.16,0.99,0,0.17,0.98,0.15,0,-0.99,0.15,0.05,0,0.23,0.29,3.42,1
+    -0.07,-0.09,1,0,0.16,0.99,0.1,0,-0.99,0.15,-0.06,0,0.88,-0.25,10.43,1
 ];
 let viewMatrix = defaultViewMatrix;
 async function main() {
